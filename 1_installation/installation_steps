@@ -41,3 +41,14 @@ Search for [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
             SystemdCgroup = true
             
 sudo systemctl restart containerd
+
+Own
+====
+2002  git clone https://github.com/AnjuMeleth/DevOpsMasterKubernetesTasks.git
+ 2003  cd DevOpsMasterKubernetesTasks/1_installation/
+ 2004  ls
+ 2005  sh minikube_install.sh 
+ 2006  sudo minikube start --vm-driver=none
+ 2007  sudo apt-get install docker.io
+ 2008  sudo minikube start --vm-driver=none
+
