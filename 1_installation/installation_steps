@@ -49,6 +49,7 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube
 
 In Ubuntu user
 ==============
+https://www.digitalocean.com/community/tutorials/how-to-use-minikube-for-local-kubernetes-development-and-testing
 minikube start --driver=docker
 sudo usermod -aG docker $USER && newgrp docker
 minikube start --driver=docker
