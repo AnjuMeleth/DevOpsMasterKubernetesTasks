@@ -52,4 +52,7 @@ In Ubuntu user
 minikube start --driver=docker
 sudo usermod -aG docker $USER && newgrp docker
 minikube start --driver=docker
+minikube service my-service --url
+curl http://192.168.49.2:31922
+
 
