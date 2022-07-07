@@ -44,11 +44,12 @@ sudo systemctl restart containerd
 
 Own
 ====
-2002  git clone https://github.com/AnjuMeleth/DevOpsMasterKubernetesTasks.git
- 2003  cd DevOpsMasterKubernetesTasks/1_installation/
- 2004  ls
- 2005  sh minikube_install.sh 
- 2006  sudo minikube start --vm-driver=none
- 2007  sudo apt-get install docker.io
- 2008  sudo minikube start --vm-driver=none
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+In Ubuntu user
+==============
+minikube start --driver=docker
+sudo usermod -aG docker $USER && newgrp docker
+minikube start --driver=docker
 
