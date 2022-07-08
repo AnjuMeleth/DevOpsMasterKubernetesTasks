@@ -62,4 +62,16 @@ minikube service my-service --url
 minikube ip
 curl http://192.168.49.2:31922
 
+AWS EKS
+==============
+Launch Ec2 server t2.micro, all http and https
+Create IAM role -> AWS service -> AWS usecase EKS-cluster -> next -> create a role with a name
+Create an IAM user and attach eksCreationRole
+Install AWS CLI in Ec2 server and do aws configure
+Using AWS CLi create cluster in AWS EKS
+install Kubectl
+
+
+
+
 
