@@ -50,10 +50,16 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube
 In Ubuntu user
 ==============
 https://www.digitalocean.com/community/tutorials/how-to-use-minikube-for-local-kubernetes-development-and-testing
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
 minikube start --driver=docker
 sudo usermod -aG docker $USER && newgrp docker
 minikube start --driver=docker
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+Eg: kubectl run nginx --image=nginx --port=80
 minikube service my-service --url
+minikube ip
 curl http://192.168.49.2:31922
 
 
