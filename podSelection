@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: mongodb
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      name: mongopod
+      labels:       
+        app: mongo              
+    spec:
+      containers:
+      - image: bitnami/mongodb      
+        name: mongocontainer
+      nodeSelector:
+        app: spring
+---                                
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: mongodbexploiter
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mongoexp
+  template:
+    metadata:
+      name: mongoexppod
+      labels:       
+        app: mongoexp              
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - mongo
+            topologyKey: "kubernetes.io/hostname"    
+      containers:
+      - image: bitnami/mongodb-exploiter      
+        name: mongoexpcontainer
