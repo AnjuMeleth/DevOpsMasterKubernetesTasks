@@ -40,3 +40,6 @@ spec:
       containers:
       - image: bitnami/mongodb-exploiter      
         name: mongodbexpcontainer
+        
+        #kubectl taint nodes minikube svc=all:NoSchedule
+        #kubectl apply -f test.yml
