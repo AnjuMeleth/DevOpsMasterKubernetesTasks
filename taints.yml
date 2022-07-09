@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: mongodb
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      name: mongopod
+      labels:       
+        app: mongo              
+    spec:
+      tolerations:
+      - key: svc
+        value: all
+        operator: Equal
+        effect: NoSchedule
+      containers:
+      - image: bitnami/mongodb      
+        name: mongodbcontainer
+---                                
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: mongoexp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mongoexp
+  template:
+    metadata:
+      name: mongoexppod
+      labels:       
+        app: mongoexp              
+    spec:
+      containers:
+      - image: bitnami/mongodb-exploiter      
+        name: mongodbexpcontainer
