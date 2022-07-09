@@ -47,3 +47,9 @@ spec:
       containers:
       - image: bitnami/mongodb-exploiter      
         name: mongoexpcontainer
+        
+        
+    # kubectl label node minikube app=spring
+    #kubectl apply -f pod.yml 
+    # kubectl get pods
+    #kubectl describe pods mongodbexploiter-7cfd4cf849-l4jfv
