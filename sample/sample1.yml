@@ -2,17 +2,24 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata:
   name: Tomcat
+  labels:
+    app: Tomcat
+    tier: Backend
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: Tomcat
+      tier: Backend
   template:
     metadata:
-      matchLabels:
+      labels:
         app: Tomcat
         tier: Backend
     spec:
       containers:
       - name: Tomcatimage:
-        image: tomcat: 8.0
+        image: tomcat:8.0
         ports:
         - containerPort: 7474
         
