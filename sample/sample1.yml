@@ -6,13 +6,13 @@ spec:
   replicas: 3
   template:
     metadata:
-      lables:
+      labels:
         app: Tomcat
         tier: Backend
     spec:
       containers:
       - name: Tomcatimage:
-        tomcat: 8.0
+        image: tomcat: 8.0
         ports:
         - containerPort: 7474
         
