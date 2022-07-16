@@ -6,7 +6,7 @@ spec:
   replicas: 3
   template:
     metadata:
-      labels:
+      matchLabels:
         app: Tomcat
         tier: Backend
     spec:
